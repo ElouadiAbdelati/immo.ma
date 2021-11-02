@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AnnonceEditDlg" widgetVar="AnnonceEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditAnnonceTitle}">
+            <h:form id="AnnonceEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{annonceController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{annonceController.selected.id}" title="#{bundle.EditAnnonceTitle_id}" />
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_title}" for="title" />
+                        <p:inputText id="title" value="#{annonceController.selected.title}" title="#{bundle.EditAnnonceTitle_title}" />
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_reference}" for="reference" />
+                        <p:inputText id="reference" value="#{annonceController.selected.reference}" title="#{bundle.EditAnnonceTitle_reference}" />
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_description}" for="description" />
+                        <p:inputText id="description" value="#{annonceController.selected.description}" title="#{bundle.EditAnnonceTitle_description}" />
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_address}" for="address" />
+                        <p:inputText id="address" value="#{annonceController.selected.address}" title="#{bundle.EditAnnonceTitle_address}" />
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_pices}" for="pices" />
+                        <p:inputText id="pices" value="#{annonceController.selected.pices}" title="#{bundle.EditAnnonceTitle_pices}" />
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_area}" for="area" />
+                        <p:inputText id="area" value="#{annonceController.selected.area}" title="#{bundle.EditAnnonceTitle_area}" />
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_areaUnits}" for="areaUnits" />
+                        <p:inputText id="areaUnits" value="#{annonceController.selected.areaUnits}" title="#{bundle.EditAnnonceTitle_areaUnits}" />
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_currency}" for="currency" />
+                        <p:inputText id="currency" value="#{annonceController.selected.currency}" title="#{bundle.EditAnnonceTitle_currency}" />
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_price}" for="price" />
+                        <p:inputText id="price" value="#{annonceController.selected.price}" title="#{bundle.EditAnnonceTitle_price}" />
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_lastPrice}" for="lastPrice" />
+                        <p:calendar id="lastPrice" pattern="MM/dd/yyyy" value="#{annonceController.selected.lastPrice}" title="#{bundle.EditAnnonceTitle_lastPrice}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_first_price}" for="first_price" />
+                        <p:inputText id="first_price" value="#{annonceController.selected.first_price}" title="#{bundle.EditAnnonceTitle_first_price}" />
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_chamber}" for="chamber" />
+                        <p:inputText id="chamber" value="#{annonceController.selected.chamber}" title="#{bundle.EditAnnonceTitle_chamber}" />
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_lastCheckDdate}" for="lastCheckDdate" />
+                        <p:calendar id="lastCheckDdate" pattern="MM/dd/yyyy" value="#{annonceController.selected.lastCheckDdate}" title="#{bundle.EditAnnonceTitle_lastCheckDdate}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_codeStatus}" for="codeStatus" />
+                        <p:inputText id="codeStatus" value="#{annonceController.selected.codeStatus}" title="#{bundle.EditAnnonceTitle_codeStatus}" />
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_latitude}" for="latitude" />
+                        <p:inputText id="latitude" value="#{annonceController.selected.latitude}" title="#{bundle.EditAnnonceTitle_latitude}" />
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_longitude}" for="longitude" />
+                        <p:inputText id="longitude" value="#{annonceController.selected.longitude}" title="#{bundle.EditAnnonceTitle_longitude}" />
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_rankObtained}" for="rankObtained" />
+                        <p:inputText id="rankObtained" value="#{annonceController.selected.rankObtained}" title="#{bundle.EditAnnonceTitle_rankObtained}" />
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_rankMax}" for="rankMax" />
+                        <p:inputText id="rankMax" value="#{annonceController.selected.rankMax}" title="#{bundle.EditAnnonceTitle_rankMax}" />
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_newPriceDate}" for="newPriceDate" />
+                        <p:calendar id="newPriceDate" pattern="MM/dd/yyyy" value="#{annonceController.selected.newPriceDate}" title="#{bundle.EditAnnonceTitle_newPriceDate}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_department}" for="department" />
+                        <p:inputText id="department" value="#{annonceController.selected.department}" title="#{bundle.EditAnnonceTitle_department}" />
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_bathroom}" for="bathroom" />
+                        <p:inputText id="bathroom" value="#{annonceController.selected.bathroom}" title="#{bundle.EditAnnonceTitle_bathroom}" />
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_surfaceLand}" for="surfaceLand" />
+                        <p:inputText id="surfaceLand" value="#{annonceController.selected.surfaceLand}" title="#{bundle.EditAnnonceTitle_surfaceLand}" />
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_annonceur}" for="annonceur" />
+                        <p:selectOneMenu id="annonceur" value="#{annonceController.selected.annonceur}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{annonceurController.itemsAvailableSelectOne}"
+                                           var="annonceurItem"
+                                           itemValue="#{annonceurItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_category}" for="category" />
+                        <p:selectOneMenu id="category" value="#{annonceController.selected.category}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{categoryController.itemsAvailableSelectOne}"
+                                           var="categoryItem"
+                                           itemValue="#{categoryItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_annonceTypeEntity}" for="annonceTypeEntity" />
+                        <p:selectOneMenu id="annonceTypeEntity" value="#{annonceController.selected.annonceTypeEntity}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{annonceTypeController.itemsAvailableSelectOne}"
+                                           var="annonceTypeEntityItem"
+                                           itemValue="#{annonceTypeEntityItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditAnnonceLabel_city}" for="city" />
+                        <p:selectOneMenu id="city" value="#{annonceController.selected.city}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{cityController.itemsAvailableSelectOne}"
+                                           var="cityItem"
+                                           itemValue="#{cityItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{annonceController.update}" value="#{bundle.Save}" update="display,:AnnonceListForm:datalist,:growl" oncomplete="handleSubmit(args, 'AnnonceEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="AnnonceEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

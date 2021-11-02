@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AnnonceurEditDlg" widgetVar="AnnonceurEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditAnnonceurTitle}">
+            <h:form id="AnnonceurEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{annonceurController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditAnnonceurLabel_city}" for="city" />
+                        <p:selectOneMenu id="city" value="#{annonceurController.selected.city}" >
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{cityController.itemsAvailableSelectOne}"
+                                           var="cityItem"
+                                           itemValue="#{cityItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditAnnonceurLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{annonceurController.selected.id}" title="#{bundle.EditAnnonceurTitle_id}" />
+                        <p:outputLabel value="#{bundle.EditAnnonceurLabel_name}" for="name" />
+                        <p:inputText id="name" value="#{annonceurController.selected.name}" title="#{bundle.EditAnnonceurTitle_name}" />
+                        <p:outputLabel value="#{bundle.EditAnnonceurLabel_telephone}" for="telephone" />
+                        <p:inputText id="telephone" value="#{annonceurController.selected.telephone}" title="#{bundle.EditAnnonceurTitle_telephone}" />
+                        <p:outputLabel value="#{bundle.EditAnnonceurLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{annonceurController.selected.email}" title="#{bundle.EditAnnonceurTitle_email}" />
+                        <p:outputLabel value="#{bundle.EditAnnonceurLabel_address}" for="address" />
+                        <p:inputText id="address" value="#{annonceurController.selected.address}" title="#{bundle.EditAnnonceurTitle_address}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{annonceurController.update}" value="#{bundle.Save}" update="display,:AnnonceurListForm:datalist,:growl" oncomplete="handleSubmit(args, 'AnnonceurEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="AnnonceurEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

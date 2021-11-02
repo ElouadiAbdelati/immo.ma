@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AnnonceViewDlg" widgetVar="AnnonceViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewAnnonceTitle}">
+            <h:form id="AnnonceViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{annonceController.selected != null}">
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_id}"/>
+                        <h:outputText value="#{annonceController.selected.id}" title="#{bundle.ViewAnnonceTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_title}"/>
+                        <h:outputText value="#{annonceController.selected.title}" title="#{bundle.ViewAnnonceTitle_title}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_reference}"/>
+                        <h:outputText value="#{annonceController.selected.reference}" title="#{bundle.ViewAnnonceTitle_reference}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_description}"/>
+                        <h:outputText value="#{annonceController.selected.description}" title="#{bundle.ViewAnnonceTitle_description}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_address}"/>
+                        <h:outputText value="#{annonceController.selected.address}" title="#{bundle.ViewAnnonceTitle_address}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_pices}"/>
+                        <h:outputText value="#{annonceController.selected.pices}" title="#{bundle.ViewAnnonceTitle_pices}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_area}"/>
+                        <h:outputText value="#{annonceController.selected.area}" title="#{bundle.ViewAnnonceTitle_area}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_areaUnits}"/>
+                        <h:outputText value="#{annonceController.selected.areaUnits}" title="#{bundle.ViewAnnonceTitle_areaUnits}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_currency}"/>
+                        <h:outputText value="#{annonceController.selected.currency}" title="#{bundle.ViewAnnonceTitle_currency}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_price}"/>
+                        <h:outputText value="#{annonceController.selected.price}" title="#{bundle.ViewAnnonceTitle_price}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_lastPrice}"/>
+                        <h:outputText value="#{annonceController.selected.lastPrice}" title="#{bundle.ViewAnnonceTitle_lastPrice}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_first_price}"/>
+                        <h:outputText value="#{annonceController.selected.first_price}" title="#{bundle.ViewAnnonceTitle_first_price}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_chamber}"/>
+                        <h:outputText value="#{annonceController.selected.chamber}" title="#{bundle.ViewAnnonceTitle_chamber}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_lastCheckDdate}"/>
+                        <h:outputText value="#{annonceController.selected.lastCheckDdate}" title="#{bundle.ViewAnnonceTitle_lastCheckDdate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_codeStatus}"/>
+                        <h:outputText value="#{annonceController.selected.codeStatus}" title="#{bundle.ViewAnnonceTitle_codeStatus}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_latitude}"/>
+                        <h:outputText value="#{annonceController.selected.latitude}" title="#{bundle.ViewAnnonceTitle_latitude}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_longitude}"/>
+                        <h:outputText value="#{annonceController.selected.longitude}" title="#{bundle.ViewAnnonceTitle_longitude}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_rankObtained}"/>
+                        <h:outputText value="#{annonceController.selected.rankObtained}" title="#{bundle.ViewAnnonceTitle_rankObtained}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_rankMax}"/>
+                        <h:outputText value="#{annonceController.selected.rankMax}" title="#{bundle.ViewAnnonceTitle_rankMax}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_newPriceDate}"/>
+                        <h:outputText value="#{annonceController.selected.newPriceDate}" title="#{bundle.ViewAnnonceTitle_newPriceDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_department}"/>
+                        <h:outputText value="#{annonceController.selected.department}" title="#{bundle.ViewAnnonceTitle_department}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_bathroom}"/>
+                        <h:outputText value="#{annonceController.selected.bathroom}" title="#{bundle.ViewAnnonceTitle_bathroom}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_surfaceLand}"/>
+                        <h:outputText value="#{annonceController.selected.surfaceLand}" title="#{bundle.ViewAnnonceTitle_surfaceLand}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_annonceur}"/>
+                        <h:outputText value="#{annonceController.selected.annonceur}" title="#{bundle.ViewAnnonceTitle_annonceur}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_category}"/>
+                        <h:outputText value="#{annonceController.selected.category}" title="#{bundle.ViewAnnonceTitle_category}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_annonceTypeEntity}"/>
+                        <h:outputText value="#{annonceController.selected.annonceTypeEntity}" title="#{bundle.ViewAnnonceTitle_annonceTypeEntity}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceLabel_city}"/>
+                        <h:outputText value="#{annonceController.selected.city}" title="#{bundle.ViewAnnonceTitle_city}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="AnnonceViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

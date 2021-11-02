@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AnnonceurViewDlg" widgetVar="AnnonceurViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewAnnonceurTitle}">
+            <h:form id="AnnonceurViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{annonceurController.selected != null}">
+                        <h:outputText value="#{bundle.ViewAnnonceurLabel_city}"/>
+                        <h:outputText value="#{annonceurController.selected.city}" title="#{bundle.ViewAnnonceurTitle_city}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceurLabel_id}"/>
+                        <h:outputText value="#{annonceurController.selected.id}" title="#{bundle.ViewAnnonceurTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceurLabel_name}"/>
+                        <h:outputText value="#{annonceurController.selected.name}" title="#{bundle.ViewAnnonceurTitle_name}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceurLabel_telephone}"/>
+                        <h:outputText value="#{annonceurController.selected.telephone}" title="#{bundle.ViewAnnonceurTitle_telephone}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceurLabel_email}"/>
+                        <h:outputText value="#{annonceurController.selected.email}" title="#{bundle.ViewAnnonceurTitle_email}"/>
+                        <h:outputText value="#{bundle.ViewAnnonceurLabel_address}"/>
+                        <h:outputText value="#{annonceurController.selected.address}" title="#{bundle.ViewAnnonceurTitle_address}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="AnnonceurViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="AnnonceurCreateDlg" widgetVar="AnnonceurCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateAnnonceurTitle}">
+            <h:form id="AnnonceurCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{annonceurController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateAnnonceurLabel_city}" for="city" />
+                        <p:selectOneMenu id="city" value="#{annonceurController.selected.city}" >
+                            <f:selectItems value="#{cityController.itemsAvailableSelectOne}"
+                                           var="cityItem"
+                                           itemValue="#{cityItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateAnnonceurLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{annonceurController.selected.id}" title="#{bundle.CreateAnnonceurTitle_id}" />
+                        <p:outputLabel value="#{bundle.CreateAnnonceurLabel_name}" for="name" />
+                        <p:inputText id="name" value="#{annonceurController.selected.name}" title="#{bundle.CreateAnnonceurTitle_name}" />
+                        <p:outputLabel value="#{bundle.CreateAnnonceurLabel_telephone}" for="telephone" />
+                        <p:inputText id="telephone" value="#{annonceurController.selected.telephone}" title="#{bundle.CreateAnnonceurTitle_telephone}" />
+                        <p:outputLabel value="#{bundle.CreateAnnonceurLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{annonceurController.selected.email}" title="#{bundle.CreateAnnonceurTitle_email}" />
+                        <p:outputLabel value="#{bundle.CreateAnnonceurLabel_address}" for="address" />
+                        <p:inputText id="address" value="#{annonceurController.selected.address}" title="#{bundle.CreateAnnonceurTitle_address}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{annonceurController.create}" value="#{bundle.Save}" update="display,:AnnonceurListForm:datalist,:growl" oncomplete="handleSubmit(args,'AnnonceurCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="AnnonceurCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
