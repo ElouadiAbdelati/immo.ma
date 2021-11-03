@@ -4,6 +4,7 @@ import com.immo.bean.Annonce;
 import com.immo.controller.util.JsfUtil;
 import com.immo.controller.util.JsfUtil.PersistAction;
 import com.immo.service.AnnonceFacade;
+import java.io.Console;
 
 import java.io.Serializable;
 import java.util.List;
@@ -32,10 +33,14 @@ public class AnnonceController implements Serializable {
     }
 
     public Annonce getSelected() {
+        if(selected==null){
+            selected=new Annonce();
+        }
         return selected;
     }
 
     public void setSelected(Annonce selected) {
+        System.out.println("annonce selected"+selected);
         this.selected = selected;
     }
 
