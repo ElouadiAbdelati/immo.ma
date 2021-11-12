@@ -72,7 +72,7 @@ public class Annonce implements Serializable {
     private Category category;
 
     @ManyToOne()
-    private AnnonceType annonceTypeEntity;
+    private AnnonceType annonceType;
 
     @ManyToOne
     private City city;
@@ -336,13 +336,15 @@ public class Annonce implements Serializable {
         this.category = category;
     }
 
-    public AnnonceType getAnnonceTypeEntity() {
-        return annonceTypeEntity;
+    public AnnonceType getAnnonceType() {
+        return annonceType;
     }
 
-    public void setAnnonceTypeEntity(AnnonceType annonceTypeEntity) {
-        this.annonceTypeEntity = annonceTypeEntity;
+    public void setAnnonceType(AnnonceType annonceType) {
+        this.annonceType = annonceType;
     }
+
+  
 
     public City getCity() {
         return city;

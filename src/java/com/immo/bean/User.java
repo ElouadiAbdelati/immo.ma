@@ -11,44 +11,63 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-/**
- *
- * @author yassine
- */
 @Entity
-public class AnnonceType implements Serializable {
+public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-     private String type;
-     
-     @OneToMany(mappedBy = "annonceType")
-    private List <Annonce> annonces;
-
-    public List<Annonce> getAnnonces() {
-        return annonces;
+    private String firstname;
+    private String lastname;
+    private String email;
+    private String tel;
+    private String password;
+  
+    
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setAnnonces(List<Annonce> annonces) {
-        this.annonces = annonces;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-
-     
-
-    public String getType() {
-        return type;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
-     
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public Long getId() {
         return id;
     }
@@ -67,10 +86,10 @@ public class AnnonceType implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof AnnonceType)) {
+        if (!(object instanceof User)) {
             return false;
         }
-        AnnonceType other = (AnnonceType) object;
+        User other = (User) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -79,7 +98,7 @@ public class AnnonceType implements Serializable {
 
     @Override
     public String toString() {
-        return "com.irisi.immoMa.bean.AnnonceTypeEntity[ id=" + id + " ]";
+        return firstname;
     }
-    
+
 }
