@@ -6,6 +6,7 @@
 package com.immo.service;
 
 import com.immo.bean.Annonceur;
+import javax.ejb.Stateful;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -20,6 +21,35 @@ public class AnnonceurFacade extends AbstractFacade<Annonceur> {
     @PersistenceContext(unitName = "immoPU")
     private EntityManager em;
 
+    public Annonceur findBylogin(String username) {
+        return findBy("email", username);
+    }
+
+    public void save(Annonceur annonceur) {
+        create(annonceur);
+    }
+
+    public int seConnecter(String email, String password) {
+        Annonceur loadedAnnonceur = findBylogin(email);
+        if (loadedAnnonceur == null) {
+            return -1;
+        } else if (!loadedAnnonceur.getPassword().equals(password)) {
+            return -2;
+        } else {
+            return 1;
+        }
+    }
+
+    public int seEnregister(Annonceur annonceur) {
+        create(annonceur);
+        Annonceur loadedAnnonceur = findBylogin(annonceur.getEmail());
+        if (loadedAnnonceur == null) {
+            return -1;
+        } else {
+            return 1;
+        }
+    }
+
     @Override
     protected EntityManager getEntityManager() {
         return em;
@@ -28,5 +58,5 @@ public class AnnonceurFacade extends AbstractFacade<Annonceur> {
     public AnnonceurFacade() {
         super(Annonceur.class);
     }
-    
+
 }

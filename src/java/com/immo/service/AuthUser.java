@@ -5,27 +5,27 @@
  */
 package com.immo.service;
 
-import com.immo.bean.User;
-import javax.ejb.Stateless;
+import com.immo.bean.Annonceur;
+import javax.ejb.Stateful;
 
-@Stateless
+@Stateful
 public class AuthUser {
 
-    private User curUser;
-    
+    private Annonceur curUser;
+
     public void signOut() {
         curUser = null;
     }
 
-    public void signIn(User user) {
+    public void signIn(Annonceur user) {
         curUser = user;
     }
 
-    public User getCurUser() {
+    public Annonceur getCurUser() {
         return curUser;
     }
 
-    public void setCurUser(User curUser) {
+    public void setCurUser(Annonceur curUser) {
         this.curUser = curUser;
     }
 

@@ -7,10 +7,12 @@ package com.immo.bean;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -26,12 +28,14 @@ public class Annonceur implements    Serializable{
     
     private Long id;
   
-    private String name;
-
+    private String firstname;
+    private String lastname;
     private String telephone;
     private String email;
+    private String password;
     private String address;
     @ManyToOne
+    @JoinColumn(nullable = true)
     private City city;
     
     @OneToMany(mappedBy = "annonceur")
@@ -53,13 +57,31 @@ public class Annonceur implements    Serializable{
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    
 
     public String getTelephone() {
         return telephone;
